@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMate 🛠️</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        
+        
+        #login-dropdown {
+            display: none; /* Hide the dropdown by default */
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000; /* Ensure it appears above other elements */
+            margin-top: 10px; /* Space between button and dropdown */
+            margin-top: 10px; /* Space between button and dropdown */
+            top: calc(100% + 10px); /* Adjust this based on the height of your navbar */
+            right: 0;
+            left: 0;
+        }
+
+        #login-dropdown a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        #login-dropdown a:hover {
+            background-color: #0072ff; /* Change background on hover */
+            color: white; /* Change text color on hover */
+        }
+
+         /* Content layout */
+         #content-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        #left-side {
+            flex: 1 1 45%;
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        #left-side img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Media query for smaller screens */
+@media (max-width: 768px) {
+    #content-section {
+        flex-direction: column; /* Stack content vertically */
+        padding: 20px;
+    }
+
+    #left-side, #right-side {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        padding: 0;
+        text-align: center;
+    }
+
+    left-side img {
+        max-width: auto; /* Ensure the image fits on small screens */
+    }
+}
+
+        /* Styling for headings */
+        h2 {
+            color: #333;
+        }
+
+        span {
+            color: #ff9900;
+        }
+
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="page1">
+            <nav id="nav">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/007/502/662/small_2x/home-care-solution-logo-designs-for-protection-service-and-care-vector.jpg" alt="Home Care Logo">
+                <div id="nav-part2">
+                    <h4><a href="index.html" class="active">🏠HOME</a></h4>
+                    <h4><a href="#"id="loginBtn">LOGIN</a></h4>
+                    <h4><a href="#page3" onclick="scrollToPage3()">SERVICES</a></h4>
+                    <h4><a href="#page4" onclick="scrollToPage4()">QUICK LINK</a></h4>
+                    <h4><a href="#">CONTACT US</a></h4>
+                    <h4><a href="#page2" onclick="scrollToPage2()">ABOUT US</a></h4>
+                </div>
+            </nav>
+            <div id="login-dropdown">
+                <a href="userlogin.html">User Login</a>
+                <a href="workerlogin.html">Worker Login</a>
+            </div>
+            <div id="center">
+                <div id="centered-content">
+                    <h1>Search Home <br> & <br> Office Services</h1>
+                    <h3>Trusted Home Services, Delivered <br> with Excellence & <br>
+                        Making Home Maintenance Simple
+                    </h3>
+                </div>
+            </div>
+            
+            
+            <video autoplay loop muted playsinline preload="auto"
+                src="https://media.istockphoto.com/id/1422277971/video/happy-latin-american-woman-leading-a-group-of-professional-cleaners-holding-a-basket-of.mp4?s=mp4-640x640-is&k=20&c=hZZqAp_-84aQzQcxvfNAK12ztcmhOn05vfz9S4_IJyY="
+                type="video/mp4"></video>
+        </div>
+
+        <style>
+            body {
+                background-color: lightblue;
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+        
+            #moving-text {
+                width: 100%;
+                overflow: hidden;
+                background-color: #d3e4cd;
+                padding: 10px 0;
+                position: relative;
+                text-align: center;
+            }
+
+            
+        
+            .scroll-container {
+                display: flex;
+                white-space: nowrap;
+                animation: scroll 12s linear infinite;
+                position: relative;
+                width: 200%;
+            }
+        
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+        
+            #moving-text h1 {
+                display: inline-block;
+                font-size: 2rem;
+                white-space: nowrap;
+                color: #000;
+                margin: 0;
+                padding: 0 1rem;
+                flex-shrink: 0; /* Prevent the h1 from shrinking */
+            }
+        
+            #content-section {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 40px;
+                flex-wrap: nowrap;
+                text-align: left;
+                color: #333;
+        
+            }
+            #left-side {
+                flex: 1 1 50%;
+                padding-right: 20px;
+                max-width: 600px;
+            }
+        
+            #right-side {
+                flex: 1 1 50%;
+                padding: 20px;
+                max-width: 600px;
+                text-align: center;
+            }
+        
+            #right-side img {
+                width: 100%; 
+                max-width: 500px; 
+                height: auto;
+                border-radius: 10px;
+                transform: translateY(40px); /* Initial position - slightly lower */
+            }
+            #right-side img:hover {
+                transform: scale(1.05) translateY(-10px); /* Lifted a bit upwards on hover */
+            }
+            @keyframes liftUp {
+                0% {
+                    transform: translateY(40px); /* Start slightly lower */
+                    opacity: 0; /* Start invisible */
+                }
+                100% {
+                    transform: translateY(0); /* Final position - back to original */
+                    opacity: 1; /* Fully visible */
+                }
+            }
+        
+            @media (max-width: 768px) {
+                #content-section {
+                    flex-direction: column; 
+                    padding: 20px;
+                }
+        
+                #left-side, #right-side {
+                    flex: 1 1 100%; 
+                    padding: 0;
+                    text-align: center;
+                }
+        
+                #right-side img {
+                    max-width: 100%; 
+                }
+            }
+        
+            h2 {
+                color: #333;
+                font-size: 4rem;
+            }
+        
+            span {
+                color: #ff9900;
+            }
+            span.solid-bold-underline {
+        font-style: bold;
+        color: #ff9900; /* Orange text color */
+        display: inline-block;
+        position: relative;
+        font-weight: bold; /* Bold text */
+    }
+
+    span.solid-bold-underline::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px; /* Distance between text and underline */
+        width: 100%;
+        height: 3px; /* Thickness of the underline */
+        background-color: #ff9900; /* Same orange color as the text */
+    }
+        
+            p {
+                color: #555;
+                font-size: 1.2rem;
+            }
+        </style>
+        
+        <div id="page2">
+            <div id="moving-text">
+                <div class="scroll-container">
+                    <h1>⭐ ATMANIRBHAR BHARAT ⭐ BY THE PEOPLE FOR THE PEOPLE ⭐ ATMANIRBHAR BHARAT ⭐ BY THE PEOPLE FOR THE PEOPLE </h1>
+                    <h1>⭐ ATMANIRBHAR BHARAT ⭐ BY THE PEOPLE FOR THE PEOPLE ⭐ ATMANIRBHAR BHARAT ⭐ BY THE PEOPLE FOR THE PEOPLE </h1>
+                </div>
+            </div>
+        
+            <div id="content-section">
+                <div id="left-side">
+                    <h2>Search Worker From <span class="solid-bold-underline">Your Locality</span></h2>
+                    <p>A user or citizen can simply search for required service professionals based on his or her geolocation empowered by Google Maps.</p>
+                    <p>The app would automatically suggest the professionals based on Geo coordinates of the user, typically within 5 kms of the range, which can be enhanced further. The user must ensure that Mobile Location service is on.</p>
+                </div>
+        
+                <!-- Right Side Image -->
+                <div id="right-side">
+                    <img src="https://images.piclumen.com/normal/20241021/1848240329745575938/9e11b4df-666d-4b73-a8f4-a148897601eb.webp" alt="App Image">
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="page3">
+            <div id="left-side">
+                <h1>
+                    <span style="font-weight: bold; color: #ff9900; display: inline-block; position: relative; font-size: 3rem;">
+                        FixMate
+                        <span style="content: ''; position: absolute; left: 0; bottom: -5px; width: 100%; height: 3px; background-color: #ff9900; border-radius: 2px;"></span>
+                    </span>
+                </h1>
+                
+                <h3 style="margin-top: 20px; font-size: 2rem;">Welcome To Our Services</h3>
+                <p>FixMate acts as bridge beteen Citizens and Local Service Professionals required 
+                    for day to day work or home services based on Geo-location in both Urban and Rural areas.</p>
+
+                <p>It is an all-in-one platform that helps users hire service professionals such as:</p> <br>
+                
+                    <h4>Carpenter</h4> <br>
+                    <h4>Beautician</h4> <br>
+                    <h4>Painter</h4> <br>
+                    <h4>Nursing</h4> <br>
+                    <h4>Diagnostics Services</h4> <br>
+                    <h4>Plumber</h4> <br>
+                    <h4>Electrician</h4> <br>
+                    <p>An endeavor of Uttar Pradesh Government which envisions to empower both the citizens as well as Service Professionals purely on local demand and supply basis.</p>
+            </div>
+            <div id="right-side">
+                <div class="box-container">
+                    <div class="box">
+                        <h3>AC Service & Repair</h3>
+                        <a href="acrepairlist.html" target="_blank">
+                            <img src="https://sewamitra.up.gov.in/Upload/Service/f798364f-5f40-4b03-9ba8-cb16d9320cca_.jpg" alt="AC Service & Repair">
+                        </a>
+                    </div>
+                    <div class="box">
+                        <h3>RO Service & Repair</h3>
+                        <a href="rorepair.html" target="_blank">
+                            <img src="https://sewamitra.up.gov.in/Upload/Service/8fb70e2f-20f2-4117-8ba2-c8c6a68b3bf1_.jpg" alt="RO Service & Repair">
+                        </a>
+                    </div>
+                    <div class="box">
+                        <h3>Appliance Repair</h3>
+                        <a href="appliance.html" target="_blank">
+                            <img src="https://sewamitra.up.gov.in/Upload/Service/aeff2414-03b6-4fcf-8575-dd6010c51f89_Appliance%20Repair.jpg" alt="Appliance Repair">
+                        </a>
+                    </div>
+                    <div class="box">
+                        <h3>Diagnostics Services</h3>
+                        <a href="doctor.html" target="_blank">
+                            <img src="https://sewamitra.up.gov.in/Upload/Service/5b1cd3e7-5f87-4cfb-8ef9-ce7c9c66b9ba_.jpg" alt="Diagnostics Services">
+                        </a>
+                    </div>
+                    <div class="box">
+                        <h3>Plumber</h3>
+                        <a href="plumber.html" target="_blank">
+                            <img src="https://sewamitra.up.gov.in/images/HomePageElectrician.png" alt="Plumber">
+                        </a>
+                    </div>
+                    <div class="box">
+                        <h3>Electrician</h3>
+                        <a href="electrician.html" target="_blank">
+                            <img src="https://sewamitra.up.gov.in/images/HomePagePlumber.png" alt="Electrician">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+    <div id= "page4">
+    <style>
+        body {
+            background-color: #ADD8E6; /* Light blue background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-family: 'Montserrat';
+            color: #000;
+            font-size: 3.5em;
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            justify-content: center;
+        }
+        .link-box {
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            font-weight: bold;
+            flex-direction: column; /* Align items vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; 
+        }
+        .link-box a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        
+        
+        .link-box a img {
+            max-width: 80px;  /* Set a max width for the image */
+            max-height: 80px; /* Set a max height for the image */
+            object-fit: contain; /* Ensure the image scales correctly */
+            margin-bottom: 10px; /* Add spacing between image and text */
+            transition: transform 0.3s ease;
+        }
+
+        .link-box:hover a {
+    transform: translateY(-10px); /* Lift both the image and text up */
+}
+
+        .link-box.home { background-color: #FFA500; } /* Orange */
+        .link-box.about { background-color: #9370DB; } /* Purple */
+        .link-box.company { background-color: #CD853F; } /* Brown */
+        .link-box.contact { background-color: #4682B4; } /* Blue */
+        .link-box.service { background-color: #D2B48C; } /* Tan */
+        .link-box.login { background-color: #6B8E23; } /* Olive */
+        .link-box.policies { background-color: #FF8C00; } /* Dark Orange */
+        .link-box.mou { background-color: #4169E1; } /* Royal Blue */
+        .link-box.manual { background-color: #8FBC8F; } /* Light Green */
+        .link-box.faq { background-color: #BA55D3; } /* Medium Orchid */
+        .link-box.officers { background-color: #FFD700; } /* Gold */
+        .link-box.sitemap { background-color: #D2691E; } /* Chocolate */
+        
+        .footer {
+            background-color: #FFA500;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quick Links</h1>
+        <div class="quick-links">
+            <div class="link-box home">
+                <a href="home.html">
+                    <img src="Untitled.png" alt="Home Icon">
+                    Home
+                </a>
+            </div>
+            <div class="link-box about">
+                <a href="about.html">
+                    <img src="Untitled 1.jpg" alt="About Us Icon">
+                    About Us
+                </a>
+            </div>
+            <div class="link-box company">
+                <a href="company.html">
+                    <img src="Untitled 4.png" alt="Company Icon">
+                    Company
+                </a>
+            </div>
+            <div class="link-box contact">
+                <a href="contact.html">
+                    <img src="Untitled.jpg" alt="Contact Us Icon">
+                    Contact Us
+                </a>
+            </div>
+            <div class="link-box service">
+                <a href="service.html">
+                    <img src="untitled 3.jpg" alt="Service Provider Icon">
+                    Service Provider List
+                </a>
+            </div>
+            <div class="link-box login">
+                <a href="login.html">
+                    <img src="untitled 5.jpg" alt="Admin Login Icon">
+                    DEO/REO/Admin Login
+                </a>
+            </div>
+            <div class="link-box policies">
+                <a href="policies.html">
+                    <img src="Untitled 6.jpg" alt="Policies Icon">
+                    Policies
+                </a>
+            </div>
+            <div class="link-box mou">
+                <a href="mou.html">
+                    <img src="image.png" alt="MOU Icon">
+                    MOU
+                </a>
+            </div>
+            <div class="link-box manual">
+                <a href="manual.html">
+                    <img src="Untitled 7.png" alt="User Manual Icon">
+                    User Manual
+                </a>
+            </div>
+            <div class="link-box faq">
+                <a href="faq.html">
+                    <img src="image 1.png" alt="FAQs Icon">
+                    FAQs
+                </a>
+            </div>
+            <div class="link-box officers">
+                <a href="officers.html">
+                    <img src="image3.png" alt="Contact List Icon">
+                    Contact List of Field Officers
+                </a>
+            </div>
+            <div class="link-box sitemap">
+                <a href="emap.html">
+                    <img src="image 2.png" alt="map Icon">
+                    Map
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Follow Us: 
+            <a href="https://www.facebook.com">Facebook</a> |
+            <a href="https://www.twitter.com">Twitter</a> |
+            <a href="https://www.instagram.com">Instagram</a> |
+            <a href="https://www.youtube.com">YouTube</a> |
+            <a href="https://www.linkedin.com">LinkedIn</a>
+        </p>
+    </div>
+</div>
+
+
+
+
+    <script>
+        document.getElementById("loginBtn").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the link from navigating
+        const dropdown = document.getElementById("login-dropdown");
+        dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+    });
+
+    // Optional: Close the dropdown when clicking outside of it
+    document.addEventListener("click", function(event) {
+        const dropdown = document.getElementById("login-dropdown");
+        if (!event.target.closest("#loginBtn") && !event.target.closest("#login-dropdown")) {
+            dropdown.style.display = "none";
+        }
+    });
+
+        const loginBtn = document.getElementById('loginBtn');
+        const loginDropdown = document.getElementById('login-dropdown');
+
+        // Toggle dropdown visibility on login button click
+        loginBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+            loginDropdown.style.display = loginDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close dropdown if clicked outside
+        window.addEventListener('click', function(event) {
+            if (!loginBtn.contains(event.target) && !loginDropdown.contains(event.target)) {
+                loginDropdown.style.display = 'none';
+            }
+        });
+
+        
+    </script>
+    <script>
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            const dropdown = document.getElementById("login-dropdown");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        });
+        window.onclick = function(event) {
+            const dropdown = document.getElementById("login-dropdown");
+            if (!event.target.matches('#loginBtn') && dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+        }
+    </script>
+
+<script>
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= window.innerHeight &&
+            rect.bottom >= 0
+        );
+    }
+
+    document.addEventListener('scroll', function() {
+        const contentSection = document.querySelector('#content-section');
+        const rightSideImage = document.querySelector('#right-side img');
+
+        // Check if #content-section is in viewport
+        if (isInViewport(contentSection)) {
+            contentSection.classList.add('appear'); // Apply appear class to make content visible
+        }
+
+        // Check if #right-side image is in viewport
+        if (isInViewport(rightSideImage)) {
+            rightSideImage.classList.add('appear'); // Apply appear class to make image visible
+        }
+    });
+</script>
+
+    
+</body>
+
+</html>

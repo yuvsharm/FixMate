@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light aqua background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #ffffff; /* White background for the main content */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #004d40; /* Dark teal color */
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .worker-details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .worker-details h2 {
+            color: #00796b; /* Teal color */
+        }
+        .worker-details p {
+            font-size: 16px;
+            color: #555555;
+        }
+        .confirm-button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            margin: 30px auto;
+            background-color: #00796b; /* Teal color */
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .confirm-button:hover {
+            background-color: #004d40; /* Darker teal on hover */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #004d40;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .payment-section {
+            margin: 20px 0;
+        }
+        .payment-section h3 {
+            color: #004d40;
+            text-align: center;
+        }
+        .payment-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .payment-section label {
+            font-size: 16px;
+            color: #333;
+            margin: 5px 0;
+        }
+        .payment-section input, .payment-section select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .payment-submit {
+            background-color: #00796b;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .payment-submit:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Booking Confirmation</h1>
+
+    <div class="worker-details">
+        <h2>AC Repair Worker: John Doe</h2>
+        <p>Experience: 5 years</p>
+        <p>Rating: ★★★★☆ (4.5)</p>
+        <p>Reviews: 120</p>
+        <p>Price: ₹200/hr</p>
+        <p>Availability: Mon-Sat, 9 AM - 6 PM</p>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-section">
+        <h3>Online Payment</h3>
+        <!-- On submitting, it will go to 'payment_success.html' -->
+        <form action="thankupage.html" method="GET">
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="">Select Payment Method</option>
+                <option value="credit-card">Credit/Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="net-banking">Net Banking</option>
+            </select>
+
+            <label for="name-on-card">Name on Card:</label>
+            <input type="text" id="name-on-card" name="name-on-card" placeholder="John Doe" required>
+
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+
+            <label for="expiry">Expiry Date:</label>
+            <input type="month" id="expiry" name="expiry" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+            <button type="submit" class="payment-submit">Proceed to Payment</button>
+        </form>
+    </div>
+</div>
+
+<audio id="congratulationSound" src="success-1-6297.mp3" preload="auto"></audio>
+
+<footer>
+    &copy; 2024 FixMate. All rights reserved.
+</footer>
+
+<script>
+    // Function to play sound when payment is submitted
+    document.getElementById("paymentForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission to play the sound first
+        const sound = document.getElementById("congratulationSound");
+        sound.muted = false; // Unmute the sound
+
+        sound.play().then(() => {
+            // After the sound plays, submit the form
+            document.getElementById("paymentForm").submit();
+        }).catch(error => {
+            console.log('Autoplay blocked: ', error); 
+            // Submit the form even if autoplay is blocked
+            document.getElementById("paymentForm").submit();
+        });
+    });
+</script>
+
+</body>
+</html>

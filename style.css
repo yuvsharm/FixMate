@@ -1,0 +1,250 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#page1 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: lightblue;
+    position: relative;
+    padding: 0.2vw;
+}
+
+#nav {
+    height: 60px;
+    padding: 0 2vw;
+    width: 100%;
+    background-color: darkkhaki;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav img {
+    height: 60px;
+    width: auto;
+}
+
+#nav-part2 {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+#nav-part2 h4 a.active {
+    color: white;
+    font-weight: bold;
+}
+
+#nav-part2 h4 {
+    padding: 10px;
+    border: 1px solid #8a8a8a;
+    border-radius: 50px;
+    font-weight: 500;
+    color: black;
+    transition: all ease 0.3s;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+#nav-part2 h4::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    left: 0;
+    bottom: -100%;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+}
+
+#nav-part2 h4:hover::after {
+    bottom: 0;
+    border-radius: 0;
+}
+
+#nav-part2 h4 a {
+    color: #000000bb;
+    text-decoration: none;
+    z-index: 9;
+    position: relative;
+}
+
+#nav-part2 h4:hover a {
+    color: white;
+}
+
+
+#center {
+    height: 65vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #0000003c;
+    padding: 2vw;
+}
+
+#center h3 {
+    font-size: 1.3vw; 
+    color: #666;
+    text-align: center;
+    width: 45vw; 
+    margin-top: 1.5vw; 
+    line-height: 1.6;
+    letter-spacing: 0.05em; 
+    font-weight: 600;
+    padding-left: 10px;
+
+}
+
+
+
+#center h1 {
+    font-size: 6vw;
+    font-weight: 900;
+    color: darkslategray;
+    text-align: center;
+    text-shadow: 3px 3px 5px (0,0,0,0.3);
+    animation: fadeIn 2s ease-in-out, scaleUp 2s ease-in-out;
+    line-height:1.2 ;
+}
+
+#page1 video {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    margin-top: 5vw;
+    filter: blur(0);
+}
+
+#page3 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: lightblue;
+    padding: 8vw 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+#moving-text {
+    width: 100%;
+    overflow: hidden;
+    background-color: #d3e4cd;
+    padding: 10px 0;
+    position: relative;
+    text-align: center;
+}
+
+.scroll-container {
+    display: flex;
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+    position: relative;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+#moving-text h1 {
+    display: inline;
+    font-size: 2rem;
+    white-space: nowrap;
+    color: #000;
+    margin: 0;
+    padding:0 1rem;
+}
+#page3 {
+    padding: 2rem;
+    background-color: lightblue;
+}
+#left-side {
+    flex: 1; /* Takes 50% of the width */
+    padding: 2rem;
+    background-color: #d3e4cd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#left-side h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#left-side p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+#right-side {
+    flex: 1; /* Takes 50% of the width */
+    padding: 2rem;
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
+    gap: 20px; /* Space between the boxes */
+}
+
+.box {
+    background-color: #495057; /* Background for the box */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.box img {
+    width: 100%; /* Ensure image takes full width */
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition for image scaling */
+}
+
+.box:hover {
+    background-color: red; /* Change background color on hover */
+}
+
+.box:hover img {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+h3 {
+    margin-bottom: 10px; /* Space between heading and image */
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Responsive Design: Single Column on Small Screens */
+@media (max-width: 768px) {
+    #page2 {
+        flex-direction: column; /* Stack left and right on small screens */
+    }
+
+    .box-container {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
